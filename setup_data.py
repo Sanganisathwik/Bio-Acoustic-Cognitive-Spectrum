@@ -36,10 +36,12 @@ print(f"Non-Bio Folders: {len(nonbio_folders)}")
 nonbio_files = []
 for fld in nonbio_folders:
     pth = os.path.join(BASE_RAW_DIR, fld)
-    nonbio_files.extend([os.path.join(pth, f) for f in os.listdir(pth) if f.endswith(".wav")])
+    for root, dirs, files in os.walk(pth):
+        nonbio_files.extend([os.path.join(root, f) for f in files if f.lower().endswith(('.wav', '.mp3'))])
 
 random.shuffle(nonbio_files)
-selected_nonbio = nonbio_files[:N_NONBIO]
+selected_nonbio = nonbio_files
+N_NONBIO = len(selected_nonbio)
 
 print(f"Processing {len(selected_nonbio)} non-bio files...")
 for i, src in enumerate(selected_nonbio):
@@ -56,7 +58,9 @@ bio_files = []
 samples_per_folder = N_BIO // len(bio_folders)
 for fld in bio_folders:
     pth = os.path.join(BASE_RAW_DIR, fld)
-    f_list = [os.path.join(pth, f) for f in os.listdir(pth) if f.endswith(".wav")]
+    f_list = []
+    for root, dirs, files in os.walk(pth):
+        f_list.extend([os.path.join(root, f) for f in files if f.lower().endswith(('.wav', '.mp3'))])
     random.shuffle(f_list)
     bio_files.extend(f_list[:samples_per_folder])
 
@@ -67,7 +71,8 @@ if len(bio_files) < N_BIO:
     all_bio = []
     for fld in bio_folders:
         pth = os.path.join(BASE_RAW_DIR, fld)
-        all_bio.extend([os.path.join(pth, f) for f in os.listdir(pth) if f.endswith(".wav")])
+        for root, dirs, files in os.walk(pth):
+            all_bio.extend([os.path.join(root, f) for f in files if f.lower().endswith(('.wav', '.mp3'))])
     random.shuffle(all_bio)
     # Add what we don't already have
     existing = set(bio_files)

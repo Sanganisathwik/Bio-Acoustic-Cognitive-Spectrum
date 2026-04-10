@@ -87,7 +87,7 @@ def train_dqn(episodes=200):
 
         print(f"Episode {episode}, Reward: {total_reward:.2f}")
 
-    torch.save(model.state_dict(), "data/dqn_model.pth")
+    torch.save(model.state_dict(), r"C:\Users\sanga\Downloads\SATHWIK\Documents\src\data\dqn_model.pth")
 
     return model
 

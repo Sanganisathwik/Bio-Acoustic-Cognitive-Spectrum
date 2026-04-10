@@ -67,8 +67,8 @@ def f1_score_manual(y_true, y_pred):
 def run_validation_suite(model):
     print("\n--- Starting CNN Validation Suite ---")
 
-    X_test = np.load("data/X_test.npy")
-    y_test = np.load("data/y_test.npy")
+    X_test = np.load(r"C:\Users\sanga\Downloads\SATHWIK\Documents\src\data\X_test.npy")
+    y_test = np.load(r"C:\Users\sanga\Downloads\SATHWIK\Documents\src\data\y_test.npy")
 
     X_test = torch.FloatTensor(X_test)
 
@@ -107,7 +107,7 @@ if __name__ == "__main__":
     from cnn import create_cnn
 
     model = create_cnn()
-    model.load_state_dict(torch.load("data/cnn_model.pth"))
+    model.load_state_dict(torch.load(r"C:\Users\sanga\Downloads\SATHWIK\Documents\src\data\cnn_model.pth"))
     model.eval()
 
     run_validation_suite(model)
