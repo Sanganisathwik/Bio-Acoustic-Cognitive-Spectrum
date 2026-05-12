@@ -319,15 +319,7 @@ For questions, issues, or collaboration opportunities:
 
 ---
 
-## 🔮 Future Roadmap
 
-- [ ] GPU acceleration support for real-time multi-channel processing
-- [ ] Extended species classification (beyond binary bio/non-bio)
-- [ ] Temporal attention mechanisms for improved sequence modeling
-- [ ] REST API for integration with IoT acoustic sensor networks
-- [ ] Multi-modal fusion (acoustic + visual data)
-- [ ] Transfer learning with domain adaptation
-- [ ] Edge deployment for autonomous underwater vehicles (AUVs)
 
 ---
 
